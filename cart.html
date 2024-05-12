@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 0;
+        }
+        p {
+            color: #777;
+            margin-bottom: 5px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Cart:</h1>
+        <ul>
+            {% for salad_id in session['cart'] %}
+                {% set salad = salads|selectattr('id', 'equalto', salad_id)|first %} <!--без этой фильтрации списка оно не сработает :( -->
+                <li>
+                    <h2>{{ salad.name }}</h2>
+                    <p>Price: ${{ salad.price }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+        <p><a href="/">Home</a></p>
+        <button><a href="https://www.youtube.com/watch?v=q-Y0bnx6Ndw">Pay</a></button>
+    </div>
+</body>
+</html>
