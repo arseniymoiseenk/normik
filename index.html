@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crab Salad Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #777;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .header {
+            color = black
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <header>
+                <h1>Welcome to Crab Salad Shop</h1>
+                {% if 'user_id' not in session %}
+                    <p><a href="/register">Register</a> or <a href="/login">Login</a></p>
+                {%else%}
+                    <p><a href="/salads">View Salads</a></p>
+                    <p><a href="/cart">View Cart</a></p>
+                    <p><a href="/add_salad">Add Salad</a></p>
+                    <p><a href="/logout">Logout</a></p>
+                {%endif%}
+            </header>
+        </div>
+    </div>
+</body>
+</html>
